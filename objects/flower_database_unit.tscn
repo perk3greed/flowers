@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3ov2p25325on"]
+
+[ext_resource type="Script" path="res://objects/flower_database_unit.gd" id="1_o8w6b"]
+
+[node name="flower_database_unit" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1100.0
+offset_bottom = -780.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o8w6b")
+
+[node name="name" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 70.0
+focus_mode = 2
+selection_enabled = true
+
+[node name="cost" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_top = 90.0
+offset_right = 140.0
+offset_bottom = 130.0
+focus_mode = 2
+selection_enabled = true

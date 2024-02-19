@@ -1,0 +1,88 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpmrph2fff1qb"]
+
+[ext_resource type="Script" path="res://objects/flower_database_constructor.gd" id="1_na56g"]
+[ext_resource type="Theme" uid="uid://be461cf42axk5" path="res://themes/current_sale_theme.tres" id="2_cuoe6"]
+[ext_resource type="Texture2D" uid="uid://do6cb0ivct8o3" path="res://buttons/sale_button/sale_button_pressed.png" id="3_k30rb"]
+[ext_resource type="Texture2D" uid="uid://dg3jigjyoo7c5" path="res://buttons/sale_button/sale_button_disabled.png" id="4_mt2js"]
+
+[node name="flower_data" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_na56g")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1600.0
+offset_bottom = 900.0
+color = Color(0.14902, 0.658824, 0.615686, 1)
+
+[node name="name" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 150.0
+offset_right = 565.0
+offset_bottom = 250.0
+theme = ExtResource("2_cuoe6")
+placeholder_text = "название"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 180.0
+offset_right = 150.0
+offset_bottom = 214.0
+theme = ExtResource("2_cuoe6")
+text = "имя цветка"
+
+[node name="cost" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 300.0
+offset_right = 266.0
+offset_bottom = 342.0
+theme = ExtResource("2_cuoe6")
+placeholder_text = "цена"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 300.0
+offset_right = 85.0
+offset_bottom = 334.0
+theme = ExtResource("2_cuoe6")
+text = "цена"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 415.0
+offset_right = 153.0
+offset_bottom = 463.0
+icon = ExtResource("3_k30rb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.044
+anchor_right = 0.5
+anchor_bottom = 0.044
+offset_top = 0.399998
+offset_right = 700.0
+offset_bottom = 800.4
+theme_override_constants/separation = 150
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+icon = ExtResource("4_mt2js")
+
+[connection signal="text_changed" from="name" to="." method="_on_name_text_changed"]
+[connection signal="text_changed" from="cost" to="." method="_on_cost_text_changed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

@@ -1,0 +1,213 @@
+[gd_scene load_steps=9 format=3 uid="uid://daff23825bt4y"]
+
+[ext_resource type="Script" path="res://main_window.gd" id="1_lhrg7"]
+[ext_resource type="Texture2D" uid="uid://cofoxr45ney4i" path="res://buttons/sale_button/sale_button_normal.png" id="2_e2rn8"]
+[ext_resource type="Script" path="res://current_sale_menu.gd" id="2_itld7"]
+[ext_resource type="Script" path="res://todays_sales.gd" id="4_c8ho6"]
+[ext_resource type="Theme" uid="uid://be461cf42axk5" path="res://themes/current_sale_theme.tres" id="4_jvlod"]
+[ext_resource type="Texture2D" uid="uid://b4kpfelbjlpo2" path="res://buttons/sale_button/sale_button_hovered.png" id="5_5ua0h"]
+[ext_resource type="PackedScene" uid="uid://bpmrph2fff1qb" path="res://objects/flower_database.tscn" id="6_lci16"]
+[ext_resource type="Texture2D" uid="uid://dg3jigjyoo7c5" path="res://buttons/sale_button/sale_button_disabled.png" id="7_aoiq8"]
+
+[node name="main_window" type="Node"]
+script = ExtResource("1_lhrg7")
+
+[node name="main_control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="ColorRect" type="ColorRect" parent="main_control"]
+layout_mode = 0
+offset_right = 1600.0
+offset_bottom = 900.0
+mouse_filter = 2
+color = Color(0.0823529, 0.2, 0.278431, 1)
+
+[node name="current_sale" type="Control" parent="main_control"]
+anchors_preset = 0
+offset_left = 120.0
+offset_top = 120.0
+offset_right = 1020.0
+offset_bottom = 420.0
+mouse_filter = 1
+script = ExtResource("2_itld7")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="main_control/current_sale"]
+layout_mode = 0
+offset_right = 900.0
+offset_bottom = 300.0
+
+[node name="Button" type="Button" parent="main_control/current_sale"]
+layout_mode = 0
+offset_left = 715.0
+offset_top = 225.0
+offset_right = 843.0
+offset_bottom = 273.0
+icon = ExtResource("2_e2rn8")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="main_control/current_sale"]
+layout_mode = 0
+offset_left = 700.0
+offset_top = 165.0
+offset_right = 820.0
+offset_bottom = 205.0
+focus_mode = 2
+text = "93"
+selection_enabled = true
+
+[node name="Label" type="Label" parent="main_control/current_sale"]
+layout_mode = 0
+offset_left = 700.0
+offset_top = 135.0
+offset_right = 878.0
+offset_bottom = 169.0
+theme = ExtResource("4_jvlod")
+text = "итоговая цена"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="main_control/current_sale"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="name" type="TextEdit" parent="main_control/current_sale"]
+layout_mode = 0
+offset_right = 240.0
+offset_bottom = 60.0
+theme = ExtResource("4_jvlod")
+placeholder_text = "название"
+caret_blink = true
+caret_blink_interval = 1.0
+
+[node name="cost" type="LineEdit" parent="main_control/current_sale"]
+layout_mode = 0
+offset_top = 85.0
+offset_right = 96.0
+offset_bottom = 127.0
+theme = ExtResource("4_jvlod")
+placeholder_text = "цена"
+
+[node name="discount" type="CheckBox" parent="main_control/current_sale"]
+layout_mode = 0
+offset_left = 315.0
+offset_top = 30.0
+offset_right = 339.0
+offset_bottom = 54.0
+
+[node name="discount_lable" type="Label" parent="main_control/current_sale/discount"]
+layout_mode = 0
+offset_left = 35.0
+offset_right = 145.0
+offset_bottom = 23.0
+text = "скидка	"
+
+[node name="Buket" type="CheckBox" parent="main_control/current_sale"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 316.0
+offset_top = 60.0
+offset_right = 340.0
+offset_bottom = 84.0
+
+[node name="Buket_Lable" type="Label" parent="main_control/current_sale/Buket"]
+layout_mode = 0
+offset_left = 35.0
+offset_right = 145.0
+offset_bottom = 23.0
+text = "букет"
+
+[node name="Kompositcia" type="CheckBox" parent="main_control/current_sale"]
+layout_mode = 0
+offset_left = 315.0
+offset_top = 90.0
+offset_right = 339.0
+offset_bottom = 114.0
+
+[node name="Komp_lable" type="Label" parent="main_control/current_sale/Kompositcia"]
+layout_mode = 0
+offset_left = 35.0
+offset_right = 145.0
+offset_bottom = 23.0
+text = "композиция"
+
+[node name="OptionButton" type="OptionButton" parent="main_control/current_sale"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 165.0
+offset_right = 169.0
+offset_bottom = 218.0
+
+[node name="count_cost" type="Button" parent="main_control/current_sale"]
+layout_mode = 0
+offset_left = 327.0
+offset_top = 234.0
+offset_right = 455.0
+offset_bottom = 299.0
+icon = ExtResource("5_5ua0h")
+
+[node name="cost_counted_label" type="RichTextLabel" parent="main_control/current_sale"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 244.0
+offset_right = 256.0
+offset_bottom = 284.0
+focus_mode = 2
+theme = ExtResource("4_jvlod")
+selection_enabled = true
+
+[node name="amount_flowers" type="LineEdit" parent="main_control/current_sale"]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 167.0
+offset_right = 343.0
+offset_bottom = 209.0
+theme = ExtResource("4_jvlod")
+placeholder_text = "количество"
+
+[node name="todays_sales" type="Node" parent="."]
+script = ExtResource("4_c8ho6")
+
+[node name="Control" type="Control" parent="todays_sales"]
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 120.0
+offset_top = 50.0
+offset_right = 1320.0
+offset_bottom = 400.0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="todays_sales/Control"]
+layout_mode = 1
+offset_left = 974.0
+offset_top = -490.0
+offset_right = 1374.0
+offset_bottom = 310.0
+theme_override_constants/separation = 100
+
+[node name="Control" parent="." instance=ExtResource("6_lci16")]
+visible = false
+
+[node name="CheckButton" type="CheckButton" parent="."]
+modulate = Color(0.988235, 0.882353, 0.976471, 1)
+offset_left = 1417.0
+offset_top = 837.0
+offset_right = 1581.0
+offset_bottom = 885.0
+icon = ExtResource("7_aoiq8")
+
+[connection signal="mouse_entered" from="main_control" to="." method="_on_main_control_mouse_entered"]
+[connection signal="mouse_entered" from="main_control/current_sale" to="." method="_on_current_sale_mouse_entered"]
+[connection signal="pressed" from="main_control/current_sale/Button" to="main_control/current_sale" method="_on_button_pressed"]
+[connection signal="text_changed" from="main_control/current_sale/cost" to="main_control/current_sale" method="_on_cost_text_changed"]
+[connection signal="toggled" from="main_control/current_sale/discount" to="main_control/current_sale" method="_on_discount_toggled"]
+[connection signal="item_focused" from="main_control/current_sale/OptionButton" to="main_control/current_sale" method="_on_option_button_item_focused"]
+[connection signal="item_selected" from="main_control/current_sale/OptionButton" to="main_control/current_sale" method="_on_option_button_item_selected"]
+[connection signal="pressed" from="main_control/current_sale/count_cost" to="main_control/current_sale" method="_on_count_cost_pressed"]
+[connection signal="text_changed" from="main_control/current_sale/amount_flowers" to="main_control/current_sale" method="_on_amount_flowers_text_changed"]
+[connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]
