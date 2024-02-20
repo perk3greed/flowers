@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bpmrph2fff1qb"]
+[gd_scene load_steps=6 format=3 uid="uid://bpmrph2fff1qb"]
 
 [ext_resource type="Script" path="res://objects/flower_database_constructor.gd" id="1_na56g"]
 [ext_resource type="Theme" uid="uid://be461cf42axk5" path="res://themes/current_sale_theme.tres" id="2_cuoe6"]
 [ext_resource type="Texture2D" uid="uid://do6cb0ivct8o3" path="res://buttons/sale_button/sale_button_pressed.png" id="3_k30rb"]
 [ext_resource type="Texture2D" uid="uid://dg3jigjyoo7c5" path="res://buttons/sale_button/sale_button_disabled.png" id="4_mt2js"]
+[ext_resource type="Texture2D" uid="uid://cofoxr45ney4i" path="res://buttons/sale_button/sale_button_normal.png" id="5_tkiuk"]
 
 [node name="flower_data" type="Control"]
 layout_mode = 3
@@ -82,7 +83,15 @@ offset_right = 8.0
 offset_bottom = 8.0
 icon = ExtResource("4_mt2js")
 
+[node name="reload_button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 220.0
+offset_right = 348.0
+offset_bottom = 48.0
+icon = ExtResource("5_tkiuk")
+
 [connection signal="text_changed" from="name" to="." method="_on_name_text_changed"]
 [connection signal="text_changed" from="cost" to="." method="_on_cost_text_changed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="reload_button" to="." method="_on_reload_button_pressed"]

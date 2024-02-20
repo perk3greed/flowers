@@ -32,7 +32,7 @@ func _ready():
 
 func create_flowers_array():
 	flower_array.clear()
-	for flower in flower_dict:
+	for flower in FlowerDatabaseDictionary.flower_database_dict:
 		flower_array.append(flower)
 	print("flower_array = ", flower_array)
 		
@@ -70,7 +70,7 @@ func write_info_on_sale():
 			current_sale_object.flower_type = default_sale_name.text
 			var discounted_cost = new_text_int*0.93
 			current_sale_object.cost = discounted_cost
-			
+	
 	elif calculated_price == true:
 		print(current_flower_selected)
 		count_cost()
@@ -81,10 +81,12 @@ func write_info_on_sale():
 	
 
 func _on_button_pressed():
-	if default_sale_cost.text == "":
+	if default_sale_cost.text == "" and amount_flowers.text != "":
 		calculated_price = true
-	else :
+	elif default_sale_cost.text != "" and amount_flowers.text == "":
 		calculated_price = false
+	elif default_sale_cost.text == "" and amount_flowers.text == "":
+		return 
 	write_info_on_sale()
 	$"../../todays_sales".save_closed_sale(current_sale_object)
 	reset_sale()
@@ -96,7 +98,7 @@ func _on_cost_text_changed(new_text):
 
 func count_cost():
 	
-	var price_per_flower =  flower_dict[current_flower_selected]
+	var price_per_flower =  FlowerDatabaseDictionary.flower_database_dict[current_flower_selected]
 	if discount == true:
 		final_price = price_per_flower*flowers_amount*0.93
 	else:

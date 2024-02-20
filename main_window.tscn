@@ -190,6 +190,8 @@ offset_right = 1374.0
 offset_bottom = 310.0
 theme_override_constants/separation = 100
 
+[node name="sale_class_saves" type="Node" parent="todays_sales"]
+
 [node name="Control" parent="." instance=ExtResource("6_lci16")]
 visible = false
 
@@ -201,6 +203,14 @@ offset_right = 1581.0
 offset_bottom = 885.0
 icon = ExtResource("7_aoiq8")
 
+[node name="save_days_work" type="Button" parent="."]
+self_modulate = Color(0.85098, 0, 0.521569, 1)
+offset_left = 748.0
+offset_top = 4.0
+offset_right = 876.0
+offset_bottom = 52.0
+icon = ExtResource("5_5ua0h")
+
 [connection signal="mouse_entered" from="main_control" to="." method="_on_main_control_mouse_entered"]
 [connection signal="mouse_entered" from="main_control/current_sale" to="." method="_on_current_sale_mouse_entered"]
 [connection signal="pressed" from="main_control/current_sale/Button" to="main_control/current_sale" method="_on_button_pressed"]
@@ -211,3 +221,4 @@ icon = ExtResource("7_aoiq8")
 [connection signal="pressed" from="main_control/current_sale/count_cost" to="main_control/current_sale" method="_on_count_cost_pressed"]
 [connection signal="text_changed" from="main_control/current_sale/amount_flowers" to="main_control/current_sale" method="_on_amount_flowers_text_changed"]
 [connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="pressed" from="save_days_work" to="." method="_on_button_pressed"]

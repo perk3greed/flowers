@@ -1,4 +1,5 @@
-class_name sale
+extends Node
+class_name sale 
 
 var calculated_cost : float
 var flower_type : String

@@ -9,4 +9,4 @@ func save_closed_sale(closed_sale : sale):
 	var cloased_sale_instance = closed_sale_container.instantiate()
 	$Control/VBoxContainer.add_child(cloased_sale_instance)
 	cloased_sale_instance.set_parameters(flower_name,sale_cost,discount_act)
-	
+	$sale_class_saves.add_child(closed_sale)
